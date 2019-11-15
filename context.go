@@ -60,6 +60,10 @@ func (c *Context) AddTags(tags map[string]string) *Context {
 }
 
 func CreateContext(ctx context.Context) *Context {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+
 	return &Context{ctx: ctx}
 }
 
