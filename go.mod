@@ -1,4 +1,4 @@
-module bitbucket.butik.ru/WB/goerrors
+module github.com/ownercoder/goerrors
 
 go 1.12
 
