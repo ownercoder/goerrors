@@ -13,9 +13,11 @@ import (
 )
 
 type Options struct {
-	SentryDSN        string
-	SentrySyncMode   bool
-	SentrySkipFrames int
+	SentryDSN         string
+	SentryEnvironment string
+	SentryRelease     string
+	SentrySyncMode    bool
+	SentrySkipFrames  int
 }
 
 type Level string
@@ -78,7 +80,9 @@ func newLogger(level Level, formatter Formatter, options *Options) (*logrus.Logg
 	logger.AddHook(NewWriterHook(os.Stdout, infoLevels...))
 
 	sentryOptions := sentry.ClientOptions{
-		Dsn: options.SentryDSN,
+		Dsn:         options.SentryDSN,
+		Release:     options.SentryRelease,
+		Environment: options.SentryEnvironment,
 	}
 	if options.SentrySyncMode {
 		syncTransport := sentry.NewHTTPSyncTransport()
