@@ -60,7 +60,7 @@ func (hook *SentryHook) Fire(entry *logrus.Entry) error {
 	}
 
 	if request := getEntryHTTPRequest(entry); request != nil {
-		event.Request = sentry.Request{}.FromHTTPRequest(request)
+		event.Request = sentry.NewRequest(request)
 	}
 
 	hub := sentry.CurrentHub()
