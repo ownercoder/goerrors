@@ -3,7 +3,7 @@ module github.com/ownercoder/goerrors
 go 1.12
 
 require (
-	github.com/getsentry/sentry-go v0.3.0
+	github.com/getsentry/sentry-go v0.10.0
 	github.com/gorilla/handlers v1.4.2
 	github.com/gorilla/mux v1.7.3
 	github.com/pkg/errors v0.8.1
